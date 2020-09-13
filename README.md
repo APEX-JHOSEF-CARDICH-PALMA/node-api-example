@@ -1,3 +1,18 @@
-# node-api-example
+# REST API: NODE.JS + MONGO
 
-Implementation of an application based on Node.js that consumes data from an API in order to process it.
+---
+
+Building a REST API to manage ... with Node.js and Express + MongoDB
+
+## Table of Contents
+
+- [Usage](#Usage)
+- [Dependencies](#Dependecies)
+
+## Usage
+
+---
+
+## Dependencies
+
+---
