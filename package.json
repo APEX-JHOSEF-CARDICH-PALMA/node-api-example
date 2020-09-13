@@ -1,0 +1,46 @@
+{
+  "name": "api-node-mongo",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Building a REST API to manage ... with Node.js and Express + MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhosefCardich/node-api-example.git"
+  },
+  "author": "Jhosef Anderson Cardich Palm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JhosefCardich/node-api-example/issues"
+  },
+  "homepage": "https://github.com/JhosefCardich/node-api-example#readme",
+  "dependencies": {
+    "bookshelf": "^1.2.0",
+    "colors": "^1.4.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http-errors": "~1.6.3",
+    "http-status-code": "^2.1.0",
+    "knex": "^0.21.5",
+    "mongoose": "^5.10.5",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "swagger-jsdoc": "^4.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1"
+  }
+}
