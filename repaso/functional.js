@@ -47,6 +47,18 @@ function getDataJsonFile() {
     }
   };
 }
+
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const fs = require('fs');
+
+const getDataJson = function () {
+  let rawData = fs.readFileSync('data.json');
+  let data = JSON.parse(rawData);
+  console.log(data);
+};
+
+getDataJson();
 //--------------------------------------
 // Map 3 - otras operaciones
 //--------------------------------------
