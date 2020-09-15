@@ -48,6 +48,8 @@ function getDataJsonFile() {
   };
 }
 
+// Usando readFileSync
+
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 const fs = require('fs');
@@ -58,7 +60,15 @@ const getDataJson = function () {
   console.log(data);
 };
 
-getDataJson();
+//getDataJson();
+
+// Usando require, por lo visto ya te devuelve el objeto json
+
+var data = require('./data.json'); //(with path)
+
+//Ahora podemos mapear las cosas que hemos leido, en este caso sacamos los nombres
+console.log(data.map((z) => z.first_name));
+
 //--------------------------------------
 // Map 3 - otras operaciones
 //--------------------------------------
@@ -68,6 +78,7 @@ const suma = (ns) => {
   for (i = 0; i > ns.length; i++) {
     acumulado += ns[i];
   }
+  return acumulado;
 };
 
 const multiplicados = numeros.map((x) => x * 2);
