@@ -34,14 +34,13 @@ const Todos = Base('todos');
 const Users = Base('users');
 
 Todos.get().then((x) => console.log(x[0]));
+
 //Otra manera de devolver el valor de los datos que se traen de la API
-const valorRecursoAPI = () => {
+const valorRecursoAPI = () =>
   Users.get().then((x) => {
-    const datos = x;
-    console.log(datos);
-    return datos;
+    return x;
   });
-};
-//Error a la hora de sacar los datos
-const valor = valorRecursoAPI();
+
+const valor = await valorRecursoAPI(); // Entonces este espera a que la promesa  se cumpla
+//No me parece tan buena idea, que pasa si la promesa falla ??
 console.log(valor);
