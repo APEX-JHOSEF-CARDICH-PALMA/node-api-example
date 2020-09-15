@@ -18,6 +18,14 @@ const perros = mascotas.filter((x) => x.raza == 'perro');
 
 //console.log(mascotas, perros);
 
+const suma = (ns) => {
+  let acumulado = 0;
+  for (let i = 0; i < ns.length; i++) {
+    acumulado += ns[i];
+  }
+  return acumulado;
+};
+
 //--------------------------------------
 // Map 1 - Maper un JSON de variable
 //--------------------------------------
@@ -67,19 +75,15 @@ const getDataJson = function () {
 var data = require('./data.json'); //(with path)
 
 //Ahora podemos mapear las cosas que hemos leido, en este caso sacamos los nombres
+console.log('- campo: first_name');
 console.log(data.map((z) => z.first_name));
+
+console.log('- Suma de ID');
+console.log(suma(data.map((z) => z.id)));
 
 //--------------------------------------
 // Map 3 - otras operaciones
 //--------------------------------------
-
-const suma = (ns) => {
-  let acumulado = 0;
-  for (i = 0; i > ns.length; i++) {
-    acumulado += ns[i];
-  }
-  return acumulado;
-};
 
 const multiplicados = numeros.map((x) => x * 2);
 //console.log(multiplicados);
