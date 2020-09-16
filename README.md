@@ -37,6 +37,7 @@ docker-compose up
 > Docker
 
 ```
+- Listar imagenes -> docker images
 - borrar imagenes -> docker rmi $(docker images -q)
 - borrar contenedores -> docker rm $(docker ps -a -q)
 - Listar contenedores -> docker ps -a
