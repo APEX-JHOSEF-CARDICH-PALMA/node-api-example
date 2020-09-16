@@ -34,15 +34,15 @@ docker-compose up
 
 ### Scaffolding
 
-- config:
+- /config:
   - Configuracion de las variables de entorno y otras como los puertos en los que tiene que correr el servidor.
 - controllers:
-
-- models:
+  - ciertas
+- /models:
   - Estarán los modelos de la base de datos, que campos y datos tienen.
-- routes:
+- /routes:
   - Estarás las rutas de la aplicación.
-- views:
+- /views:
   - En este se encontraran todas las vistas que se enviaran al navegador con el que desarrollaremos las
 
 ### Comandos útiles
