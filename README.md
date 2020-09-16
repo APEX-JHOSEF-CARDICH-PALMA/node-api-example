@@ -42,3 +42,11 @@ docker-compose up
 - borrar contenedores -> docker rm $(docker ps -a -q)
 - Listar contenedores -> docker ps -a
 ```
+
+> Package conf:
+
+```
+When you have 'type: module' in the package.json file, your source code should use import syntax. When you do not have, you should use require syntax.
+Adding 'type': 'module' to the package.json enables ES 6 modules. For more info, see here.
+https://nodejs.org/docs/latest-v13.x/api/esm.html#esm_enabling
+```
