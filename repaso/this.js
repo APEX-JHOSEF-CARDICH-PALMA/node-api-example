@@ -20,7 +20,8 @@ en el que se nos indica que this.title, dentro de la funcion
 que intenta imprimir el titulo, no esta definido. Esto es debido a que
 la funcion esta buscando el valor de la variable en el ambito mas general, fuera dell callback
 , para soluciionar esto, tendriamos que pasarle el objeto video al callback 
-para que asi este pueda referenciarlo*/
+para que asi este pueda referenciarlo, o quiza, si no necesitamos parametros podremos llamar 
+con una funcio que no recibe parametros*/
 
 const videos2 = {
   title: 'a',
