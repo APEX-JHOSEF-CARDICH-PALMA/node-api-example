@@ -18,7 +18,9 @@ Para que la aplicación funcione, se necesita que base de datos en mongo y el se
 
 > Construir las imagenes y levantar los contenedores:
 
-```
+- Al levantar la imagen estaremos en modo desarrollo
+
+```compose
 docker-compose build
 
 docker-compose up
