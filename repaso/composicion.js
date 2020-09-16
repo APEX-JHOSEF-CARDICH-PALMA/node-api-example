@@ -29,13 +29,16 @@ const capitalizaNombreyApellido = (x) => ({
 
 const generaCadenaNombre = (x) => `${x.nombre} ${x.apellido}`;
 
-//Ojo al return
-const getNombreCompleto = (_users) => {
+//Ojo al return, solo usar unas llaves cuando tenemos return
+const getNombreCompleto2 = (_users) => {
   const primero = primerElemmento(_users);
   const capitalizados = capitalizaNombreyApellido(primero);
   return generaCadenaNombre(capitalizados);
 };
 
+const getNombreCompleto3 = (_users) =>
+  generaCadenaNombre(capitalizaNombreyApellido(primerElemmento(_users)));
+
 console.log(getNombreCompleto(users));
-const x = getNombreCompleto(users);
-console.log(x);
+
+//Mirar rollo composcion de funciones, para  el tema de point free, pogramacion tasita

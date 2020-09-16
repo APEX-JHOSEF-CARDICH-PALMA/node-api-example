@@ -41,6 +41,7 @@ const valorRecursoAPI = () =>
     return x;
   });
 
-const valor = await valorRecursoAPI(); // Entonces este espera a que la promesa  se cumpla
+const valor = await valorRecursoAPI();
+// Entonces este espera a que la promesa  se cumpla
 //No me parece tan buena idea, que pasa si la promesa falla ??
 console.log(valor);
