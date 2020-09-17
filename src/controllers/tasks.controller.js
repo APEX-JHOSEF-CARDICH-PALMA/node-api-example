@@ -1,7 +1,13 @@
 var task = [
-    { "title": 333, "description": "Hi this is a little description ", "telf": "1576584545" }
+    { "title": "Thoughs..", "description": "Hi bitch ... you're my best view.. EWWWW ", "telf": "1576584545" }
 ];
 
 export function findAllTasks() {
+    console.log(" Returning all the tasks: ");
     return task;
+}
+
+export function addTask(task) {
+    console.log("Task received:" + JSON.stringify(task));
+
 }

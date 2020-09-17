@@ -7,7 +7,7 @@ import { Task } from '../models/task.model';
 export class TaskService {
   apiUrl = 'http://localhost:3000/addtask';
   endpoIntNewTask = '/addtask';
-  users: any[] = [
+  tasks: any[] = [
     {
       tittle: 'Jhosef',
       description:
@@ -16,19 +16,21 @@ export class TaskService {
 
     },
   ];
+
   constructor(private _http: HttpClient) {
     console.log('ANGULAR: task service running');
   }
 
   getTasksFake() {
-    return this.users;
+    return this.tasks;
   }
   getApiTasks() {
-    return this._http.get<any>(this.apiUrl);
+    console.log('ANGULAR: GET TASKS ');
+    return this._http.get<any>('/api/tasks');
   }
 
   enrroll(task: Task) {
-    console.log('ANGULAR: POST ');
-    return this._http.post<any>('/addtask', task);
+    console.log('ANGULAR: POST TASK ');
+    return this._http.post<any>('/api/addtask', task);
   }
 }
