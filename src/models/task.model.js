@@ -8,17 +8,12 @@ const Schema = mongoose.Schema;
 
 const TaskSchema = new Schema({
     title: String,
-    description: String,
-    status: {
-        type: Boolean,
-        default: false
-    },
-    phone: String
+    description: String, phone: String
 
 })
 
 /**
  * Pasamos nuestro schema a mongo db para poder empezar a guardar datos
  */
- 
-mongoose.model('tasks',TaskSchema);
+
+mongoose.model('tasks', TaskSchema);
