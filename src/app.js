@@ -11,7 +11,7 @@ import mongoose from 'mongoose';
 
 /** DB connection */
 mongoose
-  .connect('mongodb://mongo/data-base', {
+  .connect('mongodb://localhost/data-base', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
