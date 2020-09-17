@@ -39,7 +39,7 @@ docker-compose up
 - /config:
   - Configuracion de las variables de entorno y otras como los puertos en los que tiene que correr el servidor.
 - controllers:
-  - ciertas
+  - funcionalidades para hacer las consultas a la DB.
 - /models:
   - Estarán los modelos de la base de datos, que campos y datos tienen.
 - /routes:

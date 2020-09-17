@@ -15,7 +15,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then((db) => console.log('Db is connected to', db.connection.host))
+  .then((db) => console.log('Mongo is connected to', db.connection.host))
   .catch((err) =>
     console.log('Error en la conexion de la base de datos: ', err)
   );
