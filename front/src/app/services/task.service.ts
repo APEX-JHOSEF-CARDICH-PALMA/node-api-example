@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TaskService {
-  apiUrl = 'http://localhost:3000/api/tasks';
+  apiUrl = 'http://localhost:3000/gettask';
   users: any[] = [
     {
       tittle: 'Jhosef',

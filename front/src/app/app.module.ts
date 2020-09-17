@@ -4,10 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskService } from './services/task.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, TaskComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [TaskService],
   bootstrap: [AppComponent],
 })

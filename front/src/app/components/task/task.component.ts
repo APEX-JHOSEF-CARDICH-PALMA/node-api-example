@@ -1,5 +1,5 @@
-import { importType } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 // Services
 import { TaskService } from '../../services/task.service';
 //Models
@@ -11,9 +11,17 @@ import { Task } from '../../models/task.model';
 })
 export class TaskComponent implements OnInit {
 
-
-  constructor(private TaskService: TaskService) { }
   tasks$: Task[] = [];
+  formGroup;
+  constructor(
+    private TaskService: TaskService,
+    private formBuilder: FormBuilder
+  ) {
+    this.formGroup = this.formBuilder.group({
+      title: '',
+      description: ''
+    });
+  }
 
   ngOnInit() {
     this.tasks$ = this.TaskService.getTasksFake();
@@ -25,4 +33,10 @@ export class TaskComponent implements OnInit {
       console.log(this.tasks$);
     });*/
   }
+
+  onSubmit(formData) {
+    var desc = formData['title'];
+    console.log(desc);
+  }
 }
+
