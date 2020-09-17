@@ -19,7 +19,8 @@ export class TaskComponent implements OnInit {
   ) {
     this.formGroup = this.formBuilder.group({
       title: '',
-      description: ''
+      description: '',
+      telf: ''
     });
   }
 
@@ -36,7 +37,10 @@ export class TaskComponent implements OnInit {
 
   onSubmit(formData) {
     var desc = formData['title'];
+    console.log('COMPONENT: onSubmiT');
     console.log(desc);
+    this.TaskService.enrroll(formData).subscribe(data => console.log('Succes!', data),
+      error => console.log('Error!', error));
   }
 }
 

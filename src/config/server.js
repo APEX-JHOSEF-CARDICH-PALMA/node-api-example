@@ -26,7 +26,7 @@ app.set('views', './views');
 app.set('view engine', 'ejs');
 
 //Uso de las rutas
-app.use('/', routes);
+app.use('/api', routes);
 
 //Capturar los datos desde html
 app.use(express.urlencoded({ extended: false }));
