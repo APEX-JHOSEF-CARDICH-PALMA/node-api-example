@@ -16,7 +16,8 @@ export class TaskComponent implements OnInit {
   tasks$: Task[] = [];
 
   ngOnInit() {
-    console.log(this.TaskService.getTasksFake());
+    this.tasks$ = this.TaskService.getTasksFake();
+    console.log(this.tasks$);
     return this.TaskService.getTasksFake();
 
     /*return this.TaskService.getApiTasks().subscribe((data: any) => {

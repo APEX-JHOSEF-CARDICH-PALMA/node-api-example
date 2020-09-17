@@ -1,1 +1,17 @@
 <h1>Componente tareas </h1>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/admin">Admin Panel</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> List Users</li>
+    </ol>
+</nav>
+<div>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let index of tasks$">
+            <h1> API DATA</h1>
+            <h6>Name: {{index.title}}</h6>
+            <h6>Surname: {{index.description}}</h6>
+            <h6>Email: {{index.phone}}</h6>
+        </li>
+    </ul>
+</div>
