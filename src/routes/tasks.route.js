@@ -1,12 +1,11 @@
 import express from 'express';
+import * as taskController from '../controllers/tasks.controller.js';
 const router = express.Router();
 
 
-var task = [
-  { "title": 1, "description": "Hi this is a little description ", "telf": "1576584545" }
-];
+
 router.get('/', (req, res) => {
-  res.status(200).send(task);
+  res.status(200).send(taskController.findAllTasks());
 });
 
 export default router;
