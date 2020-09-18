@@ -25,7 +25,20 @@ docker-compose build
 
 docker-compose up
 ```
+## Configuracion en el desarrollo
 
+#### Front
+
+El frontal de la applicación esta desarrollada con angular, pero para poder 
+desarrollar en local, se necesita tener conexión con la API 
+por ello, se necesita cierta configuración para evitar problemas de control de 
+comunicación (CORS), la cual se ha añadido en en un archivo con configuracion proxy.
+Anyways, si se quiere levantar el front, pero no mucho porque arriba España.
+
+> En la carpeta front 
+```
+npm start 
+```
 ---
 
 ## Dependencies
