@@ -24,13 +24,43 @@ export class TaskService {
   getTasksFake() {
     return this.tasks;
   }
-  getApiTasks() {
+
+  getApiAllTasks() {
     console.log('ANGULAR: GET TASKS ');
     return this._http.get<any>('/api/tasks');
   }
+  getApiTask() {
+    console.log('ANGULAR: GET TASK ');
+    return this._http.get<any>('/api/tasks');
 
-  enrroll(task: Task) {
-    console.log('ANGULAR: POST TASK ');
-    return this._http.post<any>('/api/addtask', task);
   }
+  addApiTask(task: Task) {
+    console.log('ANGULAR: POST TASK ');
+    return this._http.post<any>('/api/add', task);
+  }
+
+  searchApiTask() {
+    console.log('ANGULAR: SEARCH TASKS ');
+    return this._http.get<any>('/api/tasks');
+  }
+
+  updateApiTask() {
+    console.log('ANGULAR: UPDATE TASKS ');
+    return this._http.get<any>('/api/tasks');
+
+  }
+
+  deleteApiTask() {
+    console.log('ANGULAR: DELETE TASKS ');
+    return this._http.get<any>('/api/tasks');
+
+  }
+
+
+
+
+
+
+
+
 }

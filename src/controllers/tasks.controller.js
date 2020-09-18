@@ -3,11 +3,38 @@ var task = [
 ];
 
 export function findAllTasks() {
-    console.log(" Returning all the tasks: ");
+    console.log("CONTROLLER: all tasks ");
     return task;
 }
 
-export function addTask(task) {
-    console.log("Task received:" + JSON.stringify(task));
 
+export function findTask() {
+    console.log(" CONTROLLER: a task ");
+    return task;
+}
+
+export function searchTask() {
+    console.log("CONTROLLER: search" + JSON.stringify(task));
+    return task;
+}
+
+export function addTask() {
+    console.log("CONTROLLER: addtask " + JSON.stringify(task));
+    return task;
+}
+
+export function updateTask() {
+    console.log("CONTROLLER: update task" + JSON.stringify(task));
+    return task;
+}
+
+export function deleteTask() {
+    console.log("CONTROLLER: delete task" + JSON.stringify(task));
+    return task;
+}
+
+
+export function fillDb() {
+    console.log("CONTROLLER: fill db " + JSON.stringify(task));
+    return task;
 }

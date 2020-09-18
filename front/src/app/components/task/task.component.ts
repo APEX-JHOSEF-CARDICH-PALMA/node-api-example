@@ -29,7 +29,7 @@ export class TaskComponent implements OnInit {
     console.log(this.tasks$);
     return this.TaskService.getTasksFake();
 */
-    return this.TaskService.getApiTasks().subscribe((data: any) => {
+    return this.TaskService.getApiAllTasks().subscribe((data: any) => {
       this.tasks$ = data;
       console.log(this.tasks$);
     });
@@ -39,7 +39,7 @@ export class TaskComponent implements OnInit {
     var desc = formData['title'];
     console.log('COMPONENT: onSubmiT');
     console.log(desc);
-    this.TaskService.enrroll(formData).subscribe(data => console.log('Succes!', data),
+    this.TaskService.addApiTask(formData).subscribe(data => console.log('Succes!', data),
       error => console.log('Error!', error));
   }
 }

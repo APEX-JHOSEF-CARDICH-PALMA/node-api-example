@@ -12,19 +12,26 @@ using Docker containers.
 
 ## Usage
 
-#### Docker Compose
+### API Endpointss
 
-Para que la aplicación funcione, se necesita que base de datos en mongo y el servidor en node esten funcionando, para ello se ha configurado un archivo docker compose, el cual tomará como entrada la cofiguracion del archivo **_'docker-compose.yml'_**, en el que se enlazan los dos contenedores.
 
-> Construir las imagenes y levantar los contenedores:
+- **/**
+  - list all tasks
+- **/:id**
+  - request a  Task
+- **/add**
+  - create Task
+- **/search**
+  - searching task with a query expression
+- **/update**
+  - update a task
+- **/delete**
+  - delete a task
+- **/filldata**
+  - fill test data to the db 
 
-- Al levantar la imagen estaremos en modo desarrollo
-
-```compose
-docker-compose build
-
-docker-compose up
-```
+> API Collection on POSTMAN:  
+>![API Collection](doc/appicollection.png)
 ## Configuracion en el desarrollo
 
 #### Front
@@ -39,7 +46,22 @@ Anyways, si se quiere levantar el front, pero no mucho porque arriba España.
 ```
 npm start 
 ```
+> Front appearance:
+>![API Collection](doc/front.png)
 ---
+#### Back - Docker Compose
+
+Para que la aplicación funcione, se necesita que base de datos en mongo y el servidor en node esten funcionando, para ello se ha configurado un archivo docker compose, el cual tomará como entrada la cofiguracion del archivo **_'docker-compose.yml'_**, en el que se enlazan los dos contenedores.
+
+> Construir las imagenes y levantar los contenedores:
+
+- Al levantar la imagen estaremos en modo desarrollo
+
+```compose
+docker-compose build
+
+docker-compose up
+```
 
 ## Dependencies
 
@@ -57,8 +79,6 @@ npm start
   - Estarán los modelos de la base de datos, que campos y datos tienen.
 - /routes:
   - Estarás las rutas de la aplicación.
-- /views:
-  - En este se encontraran todas las vistas que se enviaran al navegador con el que desarrollaremos las
 
 ### Comandos útiles
 
