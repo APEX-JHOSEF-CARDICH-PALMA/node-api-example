@@ -3,12 +3,15 @@ const require = createRequire(import.meta.url);
 
 import * as Task from '../models/task.model.js';
 const tarea = Task.default; //OJO MIRAR LOS DEFAULTS E IMPORTS.. ESTO ES CHAPUSA 
+
+
 var task = [
     { "title": "Thoughs..", "description": "Hi bitch ... you're my best view.. EWWWW ", "telf": "1576584545" }
 
 ];
 export function findAllTasks() {
     console.log("CONTROLLER: all tasks ");
+
     return task;
 }
 

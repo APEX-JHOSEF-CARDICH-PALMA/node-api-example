@@ -1,15 +1,9 @@
 import * as taskController from '../controllers/tasks.controller.js';
 import express from 'express';
+import taskModel from '../models/task.model.js';
 
 const router = express.Router();
-/*
-router.post('/addtask', (req, res) => {
-    console.log(req.body);
-    console.log("WEBSERV: Data received ");
-    res.status(200).send({ "message": "Data task received" });
-});
 
-*/
 //  Devuelve todas las tareas
 router.get('/', (req, res) => {
   console.log('WEBSERV GET: ' + JSON.stringify(taskController.findAllTasks())),
@@ -25,7 +19,9 @@ router.get('/:id"', (req, res) => {
 
 //Añade una tarea
 router.post('/add', (req, res) => {
-  console.log('WEBSERV POST: ' + JSON.stringify(taskController.addTask(req, res)));
+  console.log(JSON.stringify(req.body));
+  res.send({ status: 'SUCCES' });
+
 });
 
 //Búsqueda de tareas
