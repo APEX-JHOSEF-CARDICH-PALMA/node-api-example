@@ -19,9 +19,11 @@ router.get('/:id"', (req, res) => {
 
 //Añade una tarea
 router.post('/add', (req, res) => {
-  console.log(JSON.stringify(req.body));
-  res.send({ status: 'SUCCES' });
-
+  console.log('ENDPOINT ADD: ');
+  console.log(req.body);
+  const tareaNueva =
+    taskController.addTask(req, res)
+  console.log(tareaNueva);
 });
 
 //Búsqueda de tareas

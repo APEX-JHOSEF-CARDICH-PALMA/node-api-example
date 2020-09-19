@@ -15,4 +15,5 @@ const taskSchema = new Schema({
  * Pasamos nuestro schema a mongo db para poder empezar a guardar datos
  */
 //Exportamos el schema si queramos usarlo para hacer otro modelo
-export default mongoose.model('Task', taskSchema);
+const TaskModel = mongoose.model('Task', taskSchema);
+export default TaskModel;

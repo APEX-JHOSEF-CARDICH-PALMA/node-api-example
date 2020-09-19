@@ -1,9 +1,6 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-
-import * as Task from '../models/task.model.js';
-const tarea = Task.default; //OJO MIRAR LOS DEFAULTS E IMPORTS.. ESTO ES CHAPUSA 
-
+import TaskModel from '../models/task.model.js';
 
 var task = [
     { "title": "Thoughs..", "description": "Hi bitch ... you're my best view.. EWWWW ", "telf": "1576584545" }
@@ -14,7 +11,6 @@ export function findAllTasks() {
 
     return task;
 }
-
 
 export function findTask() {
     console.log(" CONTROLLER: a task ");
@@ -28,7 +24,7 @@ export function searchTask() {
 
 export function addTask(req, res) {
     console.log("CONTROLLER: addtask ");
-    console.log(req.body);
+    console.log(req.body.title);
 
     // Validate request
     if (!req.body) {
@@ -37,24 +33,35 @@ export function addTask(req, res) {
         });
     }
 
-    const tareaNueva = new tarea({
+    const tareaNueva1 = new TaskModel({
+        title: 'ya funca',
+        description: 'quiero terminar esto cuanto antes',
+        phone: 'd23928738'
+    });
+
+
+    const tareaNueva = new TaskModel({
         title: req.body.title,
         description: req.body.description,
-        phone: req.body.phone
+        phone: req.body.phone,
     });
+
+    const tareaNueva2 = new TaskModel(req.body);
 
     tareaNueva.save()
         .then(data => {
             res.send(data);
+            console.log("New Task created:" + data);
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Something went wrong while creating new task."
             });
         });
 
-    console.log(new tarea(req));
     return tareaNueva;
 }
+
+
 
 export function updateTask() {
     console.log("CONTROLLER: update task" + JSON.stringify(task));
