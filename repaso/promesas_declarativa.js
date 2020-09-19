@@ -2,6 +2,8 @@
 declarativ: Se encarga de detallar la logica del programa, pero no se enfoca en como se hacen las cosas 
 por debajo*/
 
+const { identity } = require("lodash");
+
 //Promesas
 /*
 Son un obejeto que representan un valor que se pueden resolver eventualmente
@@ -53,3 +55,109 @@ las promesas tambien se pueden comportar como clases*/
 
 const delayed = (x) =>
   new Promise((resolve, reject) => setTimeout(() => res(x), 900));
+
+
+/**
+ * Las promesas reci ben una funcion, que  a su vez
+ * recbe dos parametros, el cual uno indica el valor correcto de la 
+ * ejecucion  y otro el caso de fallo
+ */
+
+// Promises: EL then y el catch estan asociados a cada parametro resolve y reject
+let p =
+  new Promise(function (resolve, reject) {
+    let suma = 2 + 20;
+    if (suma === 8) {
+      resolve("Correcto!");
+    } else {
+      reject("Error!");
+    }
+  });
+p.then(function (mensaje) {
+  console.log(mensaje);
+}).catch(function (error) {
+  console.log(error);
+});
+// LLamadas encadenadas de promesas 
+function mostrarPhone(mensaje) {
+  return new Promise(function (resolve, reject) {
+    if (mensaje) {
+      resolve("Obtuvistes es un + mensaje.brand");
+    } else {
+      reject("Error");
+    }
+  });
+}
+
+function miPromesa() {
+  return new Promise(function (resolve, reject) {
+    let isHomeworkDone = true;
+    if (isHomeworkDone === true) {
+      let phone = {
+        color: "negro",
+        brand: "iPhone"
+      }
+      resolve(phone);
+    } else {
+      reject("No obtuvistes un iPhone");
+    }
+  });
+}
+
+miPromesa().then(function (mensaje) {
+  return mostrarPhone(mensaje);
+}).then(function (respuesta) {
+  console.log(respuesta);
+}).catch(function (error) {
+  console.log(error);
+});
+
+// Callbacks: Funciones que reciben como parametro otras funciones
+function function1(fn) {
+  setTimeout(function () {
+    console.log("mensaje 1");
+    fn();
+  }, 1000);
+}
+function function2() {
+  console.log("mensaje 2");
+}
+function1(function2);
+
+
+/* Async & Await  tambien son mecanismos para los que podremos usar
+para poder gestionar promesas por debajo tambien
+*/
+
+
+const getDatos = () => {
+  return new Promise((resolve, reject) => {
+    if (datos.length === 0) {
+      setTimeout(() => {
+        resolve(datos);
+      }, 1500);
+    } else { reject(new Error('Ha habido un error')); }
+
+  });
+}
+/**Si queremos usar Awaiy o Async tenemos que hacerlos dentro de una funcion */
+
+async function fetchingData() {
+  try {
+    const datosFeteched = await getDatos();
+    console.log(datosFeteched)
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+
+
+//Funciones de alto orden, funciones que retornan funciones
+function makeAdjectifier(adjective) {
+  return function (string) {
+    return adjective + " " + string;
+  };
+}
+let coolifier = makeAdjectifier('cool');
+coolifier('video');
+// "cool video

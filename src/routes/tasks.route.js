@@ -25,8 +25,7 @@ router.get('/:id"', (req, res) => {
 
 //Añade una tarea
 router.post('/add', (req, res) => {
-  console.log('WEBSERV POST: ' + JSON.stringify(taskController.addTask())),
-    res.status(200).send(taskController.addTask());
+  console.log('WEBSERV POST: ' + JSON.stringify(taskController.addTask(req, res)));
 });
 
 //Búsqueda de tareas

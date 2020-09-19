@@ -31,7 +31,7 @@ export class TaskService {
   }
   getApiTask() {
     console.log('ANGULAR: GET TASK ');
-    return this._http.get<any>('/api/tasks');
+    return this._http.get<any>('UNK');
 
   }
   addApiTask(task: Task) {
@@ -41,7 +41,7 @@ export class TaskService {
 
   searchApiTask() {
     console.log('ANGULAR: SEARCH TASKS ');
-    return this._http.get<any>('/api/tasks');
+    return this._http.get<any>('/api/search');
   }
 
   updateApiTask() {
