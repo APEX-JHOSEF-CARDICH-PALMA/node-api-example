@@ -33,28 +33,25 @@ export function addTask(req, res) {
         });
     }
 
-    const tareaNueva1 = new TaskModel({
-        title: 'ya funca',
-        description: 'quiero terminar esto cuanto antes',
-        phone: 'd23928738'
-    });
-
-
     const tareaNueva = new TaskModel({
         title: req.body.title,
         description: req.body.description,
         phone: req.body.phone,
     });
 
+    /*
+Tambien se puede pasar el objeto completo : 
     const tareaNueva2 = new TaskModel(req.body);
+console.log("TAREA 2 " + tareaNueva2);
 
+*/
     tareaNueva.save()
         .then(data => {
             res.send(data);
-            console.log("New Task created:" + data);
+            console.log("New Task inserted correctly..");
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Something went wrong while creating new task."
+                message: err.message || "Something went wrong while creating new task in the data base."
             });
         });
 
