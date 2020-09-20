@@ -1,5 +1,3 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
 import TaskModel from '../models/task.model.js';
 
 var task = [
@@ -7,9 +5,10 @@ var task = [
 
 ];
 export function findAllTasks() {
-    console.log("CONTROLLER: all tasks ");
+    console.log("CONTROLLER: trying to get all the tasks ");
 
-    return task;
+
+    return TaskModel.find();
 }
 
 export function findTask() {

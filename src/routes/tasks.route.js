@@ -4,11 +4,23 @@ import taskModel from '../models/task.model.js';
 
 const router = express.Router();
 
-//  Devuelve todas las tareas
-router.get('/', (req, res) => {
-  console.log('WEBSERV GET: ' + JSON.stringify(taskController.findAllTasks())),
-    res.status(200).send(taskController.findAllTasks());
+/**
+ * Async y Await, en vez de usar el tipico tratamiento de errores mediante promesas 
+ */
+router.get('/', async (req, res) => {
+  console.log('WEBSERV GET: ');
+  try {
+    const data = await taskController.findAllTasks();
+    console.log(data);
+    res.status(200).send(data);
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).send({
+      message: err.message || "Something went wrong while retrieving  all the tasks in the data base."
+    });
+  }
 });
+
 
 
 //Devuelve una tarea
@@ -20,9 +32,8 @@ router.get('/:id"', (req, res) => {
 //Añade una tarea
 router.post('/add', (req, res) => {
   console.log('ENDPOINT ADD: ');
-  console.log(req.body);
   const tareaNueva =
-    taskController.addTask(req, res)
+    taskController.addTask(req, res);
   console.log(tareaNueva);
 });
 
