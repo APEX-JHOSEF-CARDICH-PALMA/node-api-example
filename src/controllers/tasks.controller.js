@@ -11,13 +11,21 @@ export function findAllTasks() {
     return TaskModel.find();
 }
 
-export function findTask() {
-    console.log(" CONTROLLER: a task ");
-    return task;
+export function findTask(req, res) {
+    console.log(" CONTROLLER: get a task ");
+    const { id } = req.params;
+
+    TaskModel.findById(id).then(data => {
+        res.status(200).send(data);
+    }).catch(err => {
+        res.status(404).send({ message: err.message || "task not found" });
+    });
+    return
 }
 
-export function searchTask() {
-    console.log("CONTROLLER: search" + JSON.stringify(task));
+export function searchTask(req, res) {
+
+    console.log("CONTROLLER: search");
     return task;
 }
 
@@ -70,9 +78,8 @@ export function deleteTask(id, res) {
     // Al tomar asi un valor, estamos pidiendo ducha propiedad del req.param
 
     TaskModel.deleteOne({ _id: id }).then(data => {
-        res.status(200).send(data, { message: 'tarea deleted : ' + id });
+        res.status(200).send(data);
         console.log(data);
-        res.redirect('/');
     }).catch(err => {
         res.status(404).send({
             message: err.message || "Something went wrong while deleting task in the data base."
