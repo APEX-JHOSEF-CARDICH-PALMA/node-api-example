@@ -48,6 +48,7 @@ console.log("TAREA 2 " + tareaNueva2);
         .then(data => {
             res.send(data);
             console.log("New Task inserted correctly..");
+            res.redirect("/"); // Cada que metemos nuevo dato, redirige los datos
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Something went wrong while creating new task in the data base."
@@ -64,9 +65,21 @@ export function updateTask() {
     return task;
 }
 
-export function deleteTask() {
-    console.log("CONTROLLER: delete task" + JSON.stringify(task));
-    return task;
+export function deleteTask(id, res) {
+    console.log("CONTROLLER: delete task");
+    // Al tomar asi un valor, estamos pidiendo ducha propiedad del req.param
+
+    TaskModel.deleteOne({ _id: id }).then(data => {
+        res.status(200).send(data, { message: 'tarea deleted : ' + id });
+        console.log(data);
+        res.redirect('/');
+    }).catch(err => {
+        res.status(404).send({
+            message: err.message || "Something went wrong while deleting task in the data base."
+        });
+    });
+
+    return id;
 }
 
 

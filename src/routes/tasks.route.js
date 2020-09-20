@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.log(err.message);
     res.status(500).send({
-      message: err.message || "Something went wrong while retrieving  all the tasks in the data base."
+      message: err.message || "Something went wrong while retrieving  all the tasks from the data base."
     });
   }
 });
@@ -31,16 +31,14 @@ router.get('/:id"', (req, res) => {
 
 //Añade una tarea
 router.post('/add', (req, res) => {
-  console.log('ENDPOINT ADD: ');
-  const tareaNueva =
-    taskController.addTask(req, res);
+  console.log('API add: ');
+  const tareaNueva = taskController.addTask(req, res);
   console.log(tareaNueva);
 });
 
 //Búsqueda de tareas
 router.get('/search', (req, res) => {
-  console.log('WEBSERV GET: ' + JSON.stringify(taskController.searchTask())),
-    res.status(200).send(taskController.searchTask());
+  console.log('WEBSERV GET: ' + JSON.stringify(taskController.searchTask()));
 });
 
 //actualiza una tarea
@@ -50,9 +48,11 @@ router.put('/update', (req, res) => {
 });
 
 //Borra una tarea 
-router.delete('/delete', (req, res) => {
-  console.log('WEBSERV POST: ' + JSON.stringify(taskController.deleteTask())),
-    res.status(200).send(taskController.deleteTask());
+router.delete('/delete/:id', (req, res) => {
+  console.log('API delete: ');
+  const { id } = req.params;
+  console.log('tarea a borrar: ' + id);
+  taskController.deleteTask(id, res);
 });
 
 
