@@ -1,3 +1,4 @@
+import cookieParser from 'cookie-parser';
 import TaskModel from '../models/task.model.js';
 
 var task = [
@@ -6,8 +7,6 @@ var task = [
 ];
 export function findAllTasks() {
     console.log("CONTROLLER: trying to get all the tasks ");
-
-
     return TaskModel.find();
 }
 
@@ -16,11 +15,12 @@ export function findTask(req, res) {
     const { id } = req.params;
 
     TaskModel.findById(id).then(data => {
+        console.log(data);
         res.status(200).send(data);
+
     }).catch(err => {
         res.status(404).send({ message: err.message || "task not found" });
     });
-    return
 }
 
 export function searchTask(req, res) {
@@ -54,23 +54,45 @@ console.log("TAREA 2 " + tareaNueva2);
 */
     tareaNueva.save()
         .then(data => {
-            res.send(data);
+            console.log(data);
             console.log("New Task inserted correctly..");
-            res.redirect("/"); // Cada que metemos nuevo dato, redirige los datos
+            res.send(data);
         }).catch(err => {
             res.status(500).send({
                 message: err.message || "Something went wrong while creating new task in the data base."
             });
         });
 
-    return tareaNueva;
 }
 
 
 
-export function updateTask() {
-    console.log("CONTROLLER: update task" + JSON.stringify(task));
-    return task;
+export function updateTask(req, res) {
+    console.log(" CONTROLLER: triyin to update a task ");
+    const { id } = req.params;
+    const { description } = req.body;
+    const { phone } = req.body;
+    const { title } = req.body;
+
+
+    console.log(description);
+    TaskModel.findById(id).then(data => {
+        console.log(data);
+        data.description = description;
+        data.phone = phone;
+        data.title = title;
+        data.save().then(data => {
+            console.log("Task updated correctly.");
+            console.log(data);
+            res.status(200).send(data);
+        })
+            .catch(err => res.status(500).send({ message: err.message }));
+    }).catch(err => {
+        res.status(500).send({ message: err.message });
+    });
+
+
+    return;
 }
 
 export function deleteTask(id, res) {

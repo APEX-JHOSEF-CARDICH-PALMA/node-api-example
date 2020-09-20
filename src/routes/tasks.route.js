@@ -24,17 +24,15 @@ router.get('/', async (req, res) => {
 
 
 //Devuelve una tarea
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
   console.log('API get a task :');
-  const foudTask = taskController.findTask(req, res);
-  console.log(foudTask);
+  taskController.findTask(req, res);
 });
 
 //Añade una tarea
 router.post('/add', (req, res) => {
   console.log('API add: ');
-  const tareaNueva = taskController.addTask(req, res);
-  console.log(tareaNueva);
+  taskController.addTask(req, res);
 });
 
 //Búsqueda de tareas
@@ -43,9 +41,9 @@ router.get('/search/:term', (req, res) => {
 });
 
 //actualiza una tarea
-router.put('/update/:id', (req, res) => {
+router.post('/update/:id', (req, res) => {
   console.log('API update task: ');
-  const updatedTask = taskController.updateTask(req, res);
+  taskController.updateTask(req, res);
 });
 
 //Borra una tarea 
