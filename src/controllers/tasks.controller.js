@@ -103,7 +103,6 @@ export function updateTask(req, res) {
 export function deleteTask(id, res) {
     console.log("CONTROLLER: delete task");
     // Al tomar asi un valor, estamos pidiendo ducha propiedad del req.param
-
     TaskModel.deleteOne({ _id: id }).then(data => {
         res.status(200).send(data);
         console.log(data);
