@@ -30,8 +30,13 @@ router.get('/search', async (req, res) => {
 });
 //Llena la base de datos
 router.post('/filldata', (req, res) => {
-  console.log('WEBSERV POST: ' + JSON.stringify(taskController.fillDb())),
-    res.status(200).send(taskController.fillDb());
+  console.log('API generate fake data :');
+  taskController.fillDb(req, res);
+});
+
+router.delete('/deleteall', (req, res) => {
+  console.log('API delete all records  :');
+  taskController.deleteRecords(req, res);
 });
 
 //Devuelve una tarea
