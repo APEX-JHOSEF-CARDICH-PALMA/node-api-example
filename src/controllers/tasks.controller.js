@@ -23,10 +23,18 @@ export function findTask(req, res) {
     });
 }
 
-export function searchTask(req, res) {
-
+export function search(req, res) {
+    console.log(" CONTROLLER: SEARCH  ");
+    const { phrase } = req.body;
+    console.log(phrase);
     console.log("CONTROLLER: search");
-    return task;
+
+    TaskModel.find({ $text: { $search: phrase } }).then(data => {
+        console.log(data);
+        res.status(200).send(data);
+    }).catch(err => {
+        res.status(500).send({ message: err.message || "Something went worng during the search.." })
+    });
 }
 
 export function addTask(req, res) {
@@ -74,7 +82,7 @@ export function updateTask(req, res) {
     const { phone } = req.body;
     const { title } = req.body;
 
-
+    // TaskModel.update({ _id: id }, req.body);
     console.log(description);
     TaskModel.findById(id).then(data => {
         console.log(data);
@@ -90,9 +98,6 @@ export function updateTask(req, res) {
     }).catch(err => {
         res.status(500).send({ message: err.message });
     });
-
-
-    return;
 }
 
 export function deleteTask(id, res) {

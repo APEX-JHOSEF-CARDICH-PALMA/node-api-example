@@ -21,7 +21,16 @@ router.get('/', async (req, res) => {
   }
 });
 
-
+//Búsqueda de tareas
+router.get('/search', async (req, res) => {
+  console.log('API search :');
+  taskController.search(req, res);
+});
+//Llena la base de datos
+router.post('/filldata', (req, res) => {
+  console.log('WEBSERV POST: ' + JSON.stringify(taskController.fillDb())),
+    res.status(200).send(taskController.fillDb());
+});
 
 //Devuelve una tarea
 router.get('/:id', async (req, res) => {
@@ -35,10 +44,7 @@ router.post('/add', (req, res) => {
   taskController.addTask(req, res);
 });
 
-//Búsqueda de tareas
-router.get('/search/:term', (req, res) => {
-  console.log('WEBSERV GET: ' + JSON.stringify(taskController.searchTask()));
-});
+
 
 //actualiza una tarea
 router.post('/update/:id', (req, res) => {
@@ -55,9 +61,5 @@ router.delete('/delete/:id', (req, res) => {
 });
 
 
-//Llena la base de datos
-router.post('/filldata', (req, res) => {
-  console.log('WEBSERV POST: ' + JSON.stringify(taskController.fillDb())),
-    res.status(200).send(taskController.fillDb());
-});
+
 export default router;

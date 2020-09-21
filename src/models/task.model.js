@@ -11,6 +11,7 @@ const taskSchema = new Schema({
     phone: String
 });
 
+taskSchema.index({ title: "text", description: "text", phone: "text" })
 /**
  * Pasamos nuestro schema a mongo db para poder empezar a guardar datos
  */
