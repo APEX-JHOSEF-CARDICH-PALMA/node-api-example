@@ -5,7 +5,7 @@ import taskModel from '../models/task.model.js';
 const router = express.Router();
 
 /**
- * Async y Await, en vez de usar el tipico tratamiento de errores mediante promesas 
+ * Async y Await, en vez de usar el tipico tratamiento de errores mediante promesas
  */
 router.get('/', async (req, res) => {
   console.log('WEBSERV GET: ');
@@ -16,7 +16,9 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.log(err.message);
     res.status(500).send({
-      message: err.message || "Something went wrong while retrieving  all the tasks from the data base."
+      message:
+        err.message ||
+        'Something went wrong while retrieving  all the tasks from the data base.',
     });
   }
 });
@@ -44,22 +46,18 @@ router.post('/add', (req, res) => {
   taskController.addTask(req, res);
 });
 
-
-
 //actualiza una tarea
 router.post('/update/:id', (req, res) => {
   console.log('API update task: ');
   taskController.updateTask(req, res);
 });
 
-//Borra una tarea 
+//Borra una tarea
 router.delete('/delete/:id', (req, res) => {
   console.log('API delete: ');
   const { id } = req.params;
   console.log('tarea a borrar: ' + id);
   taskController.deleteTask(id, res);
 });
-
-
 
 export default router;

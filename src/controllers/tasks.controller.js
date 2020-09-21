@@ -1,10 +1,7 @@
-import cookieParser from 'cookie-parser';
 import TaskModel from '../models/task.model.js';
+import faker from 'faker';
 
-var task = [
-    { "title": "Thoughs..", "description": "Hi bitch ... you're my best view.. EWWWW ", "telf": "1576584545" }
 
-];
 export function findAllTasks() {
     console.log("CONTROLLER: trying to get all the tasks ");
     return TaskModel.find();
@@ -117,6 +114,7 @@ export function deleteTask(id, res) {
 
 
 export function fillDb() {
-    console.log("CONTROLLER: fill db " + JSON.stringify(task));
-    return task;
+    console.log("CONTROLLER: fill db ");
+
+    return;
 }
