@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    container_name: apiserver
+    restart: always
+    build: .
+    ports:
+      - '5000:3000'
+    links:
+      - mongo
+    volumes:
+      - .:/app
+  mongo:
+    container_name: mongodatabse
+    image: mongo
+    ports:
+      - '27018:27018'
+    logging:
+      driver: none
